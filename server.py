@@ -55,7 +55,7 @@ def predict_emotion(image_path, model):
 app = Flask(__name__)
 CORS(app, resources={r"/predict": {"origins": ""}})
 
-classes = ['camera', 'Keyboards', 'laptop', 'Mobile', 'Mouses', 'smartwatch', 'TV' ]  # Define the classes for prediction
+classes = ['camera', 'Keyboards', 'smartwatch', 'Mobile', 'Mouses', 'laptop', 'TV' ]  # Define the classes for prediction
 
 @app.route("/")
 def index():
@@ -81,7 +81,7 @@ def predict():
     # Remove the temporary image file
     os.remove(image_path)
 
-    return jsonify({"Prediction": predicted_class_label})
+    return jsonify({"Prediction": predicted_class_label,"class":predicted_class_index})
 
 def main(image_path):
     # Path to the trained model
