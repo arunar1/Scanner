@@ -81,7 +81,7 @@ def predict():
     # Remove the temporary image file
     os.remove(image_path)
 
-    return jsonify({"Prediction": predicted_class_label,"class":predicted_class_index})
+    return jsonify({"Prediction": predicted_class_label, "class": int(predicted_class_index)})
 
 def main(image_path):
     # Path to the trained model
